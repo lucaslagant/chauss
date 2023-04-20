@@ -15,17 +15,31 @@ class CategoriesFixtures extends Fixture
     }
     public function load(ObjectManager $manager): void
     {
-        $parent = new Categories();
-        $parent->setName('Homme');
-        $parent->setSlug($this->slugger->slug($parent->getName()));
-        $manager->persist($parent);
+        $parent = $this->createCategory('Homme', null, $manager);
 
+        $this->createCategory('Nike', $parent, $manager);
+        $this->createCategory('Adidas', $parent, $manager);
+        $this->createCategory('Puma', $parent, $manager);
+        $this->createCategory('New Balance', $parent, $manager);
+        
+        $parent = $this->createCategory('Femme', null, $manager);
+
+        $this->createCategory('Nike', $parent, $manager);
+        $this->createCategory('Adidas', $parent, $manager);
+        $this->createCategory('Puma', $parent, $manager);
+        $this->createCategory('New Balance', $parent, $manager);
+
+        $manager->flush();
+    }
+    
+    public function createCategory(string $name, Categories $parent = null, ObjectManager $manager)
+    {
         $category = new Categories();
-        $category->setName('Nike');
-        $category->setSlug($this->slugger->slug($category->getName()));
+        $category->setName($name);
+        $category->setSlug($this->slugger->slug($category->getName())->lower());
         $category->setParent($parent);
         $manager->persist($category);
 
-        $manager->flush();
+        return $category;
     }
 }
