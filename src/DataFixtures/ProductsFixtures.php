@@ -10,6 +10,7 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 class ProductsFixtures extends Fixture
 {
     private $manager;
+    private $counter = 1;
 
     public function __construct(private SluggerInterface $slugger)
     {
@@ -29,8 +30,8 @@ class ProductsFixtures extends Fixture
         $this->createProduct('NY 90', 'Les NY 90 présentent une empeigne lisse habillée d’empiècements, de surpiqûres et de détails perforés. ' , '100.00' , '9', '3');
 
         $this->createProduct('CA Pro Glitch', 'Le point fort de cette paire de sneakers Puma Ca Pro Glitch réside dans sa teinte blanche unie, subtilement rehaussée par des notes de gris, et par le logo signature de la marque sur le côté de la sneaker. Sa coupe courte s’accordera avec toute votre garde-robe.' , '105.00' , '4', '4');
-        $this->createProduct('City Rider Tweak', 'Les City Rider Tweak présentent une structure basse indémodable. L’empeigne noire est surmontée d’un renfort gris sur le talon et se décore de lignes colorées profilées sur le quartier. Craquez pour le clip rouge sur le bas de la tige et le détail moucheté de la semelle.' , '95.00' , '9', '4');
-        $this->createProduct('RS-Z Leatheer', 'Les sneakers Puma RS-Z LTH ont tout pour plaire. Leur coupe d’inspiration sport est dynamique et tendance. La semelle extérieure est contrastante, pour un résultat du plus bel effet. Les notes de rouge donnent du caractère à ce modèle aux allures streetwear.' , '110.00' , '1', '4');
+        $this->createProduct('Rider Play On', 'Les Rider Play On présentent une structure basse indémodable. L’empeigne noire est surmontée d’un renfort gris sur le talon et se décore de lignes colorées profilées sur le quartier. Craquez pour le clip rouge sur le bas de la tige et le détail moucheté de la semelle.' , '95.00' , '9', '4');
+        $this->createProduct('Anzarun Lite', 'La Anzarun Lite est notre basket jusqu\'à présent la plus raffinée avec un style frais pour chaque occasion. Équipée d\'une matière supérieure en filet à ADN Anzarun aéré, d\'une semelle intérieure confortable SoftFoam+ et d\'une marque PUMA réduite, cette chaussure brille dans chaque situation.' , '60.00' , '1', '4');
 
         $this->createProduct('Dunk Hight Aluminium', 'Chaussure haute Nike' , '140.00' , '4', '6');
         $this->createProduct('Air Max Furyosa', 'Air max de couleur crème' , '160.00' , '3', '6');
@@ -41,7 +42,7 @@ class ProductsFixtures extends Fixture
         $this->createProduct('Runfalcon 3', 'Conçues pour bouger, ces baskets Runfalcon pour femmes d\'adidas vous gardent à l\'aise de courte à longue distance. Dans un triple coloris noir, ces chaussures de course ont une tige textile et synthétique durable qui utilise au moins 50 % de contenu recyclé. Elles sont dotées d\'une fermeture à lacets ton sur ton pour vous enfermer et sont assises sur une semelle intercalaire Cloudfoam moelleuse pour un confort amorti léger. Avec une bande de roulement en caoutchouc adhérente, ces baskets sont finies avec la marque adidas signature et 3 bandes sur les flancs. ' , '66.00' , '1', '7');
         
         $this->createProduct('RS-X Efekt', 'Sortez avec style avec ces baskets RS-X Efekt pour femmes de PUMA. Dans un coloris blanc, ces gros coups de pied ont une tige en mesh respirant et synthétique, qui comprend au moins 20 % de matériaux recyclés. Ils sont dotés d\'une fermeture à lacets classique pour vous enfermer, d\'un col de cheville rembourré pour un soutien accru et de tirettes sur la languette et le talon pour un accès facile. Sous le pied, la semelle intercalaire en mousse futuriste amortit votre pas, tandis que la semelle extérieure en caoutchouc offre une traction adhérente à tout moment. Fini avec les logos emblématiques PUMA Cat et le légendaire Formstrip sur les flancs.' , '120.00' , '4', '8');
-        $this->createProduct('Cali Fashion', 'Enfilez un style prêt pour l\'été avec ces baskets Cali pour femmes de PUMA. Dans un coloris blanc frais avec des accents olive, ces baskets basses ont une tige en cuir et synthétique pour un confort premium. Elles sont dotées d\'une fermeture à lacets ton sur ton pour un ajustement parfait et reposent sur une semelle intermédiaire épaisse qui maintient vos pieds amortis. Avec une semelle extérieure adhérente pour la traction dans les rues, ces baskets sont finies avec la légendaire marque Formstrip et PUMA sur les flancs.' , '90.00' , '9', '8');
+        $this->createProduct('Cali', 'Enfilez un style prêt pour l\'été avec ces baskets Cali pour femmes de PUMA. Dans un coloris blanc frais avec des accents olive, ces baskets basses ont une tige en cuir et synthétique pour un confort premium. Elles sont dotées d\'une fermeture à lacets ton sur ton pour un ajustement parfait et reposent sur une semelle intermédiaire épaisse qui maintient vos pieds amortis. Avec une semelle extérieure adhérente pour la traction dans les rues, ces baskets sont finies avec la légendaire marque Formstrip et PUMA sur les flancs.' , '90.00' , '9', '8');
         $this->createProduct('Mayze Stack', 'Prend de la hauteur avec ces baskets Mayze Stack pour femmes de PUMA.' , '120.00' , '1', '8');
         
         
@@ -59,6 +60,10 @@ class ProductsFixtures extends Fixture
         //On va chercher une référence de catégorie
         $category = $this->getReference('cat-'.$cat);
         $product->setCategories($category);
+
+        $this->addReference('prod-'.$this->counter, $product);
+        $this->counter++;
+
 
 
         $this->manager->persist($product);
