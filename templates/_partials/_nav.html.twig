@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-rouge">
     <div class="container-fluid">
-        <a class="navbar-brand fw-bold text-light fs-3" href="#">Chauss</a>
+        <a class="navbar-brand fw-bold text-light fs-3" href="{{ path('main')}}">Chauss</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -8,13 +8,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link fw-bold text-light" href="#">Accueil</a>
+                    <a class="nav-link fw-bold text-light" href="{{ path('main')}}">Accueil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link fw-bold text-light" href="#">Collection</a>
+                    <a class="nav-link fw-bold text-light" href="{{ path('marques')}}">Marques</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link fw-bold text-light" href="#">Contact</a>
+                    <a class="nav-link fw-bold text-light" href="{{ path('marques')}}">Sport</a>
                 </li>
             </ul>
             <ul class="navbar-nav m-4">

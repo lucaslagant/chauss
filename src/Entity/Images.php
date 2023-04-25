@@ -20,6 +20,8 @@ class Images
     #[ORM\JoinColumn(nullable: false)]
     private ?Products $products = null;
 
+    
+
     public function getId(): ?int
     {
         return $this->id;
@@ -49,3 +51,4 @@ class Images
         return $this;
     }
 }
+
