@@ -22,18 +22,18 @@ class CategoriesFixtures extends Fixture
         $parent = $this->createCategory('Homme', '',null, 1, $manager);
 
         //Appelle de la fonction pour créé nos sous caté + définition de qui ils sont enfant et de leur nom
-        $this->createCategory('Nike', 'nike.png',$parent, 2, $manager);
-        $this->createCategory('Adidas','adidas.png',$parent, 3, $manager);
-        $this->createCategory('Puma', 'puma.png',$parent, 4, $manager);
+        $this->createCategory('Nike Homme', 'nike.png',$parent, 2, $manager);
+        $this->createCategory('Adidas Homme','adidas.png',$parent, 3, $manager);
+        $this->createCategory('Puma Homme', 'puma.png',$parent, 4, $manager);
 
         
         //Création de la 2éme caté parent
         $parent = $this->createCategory('Femme', '',null, 5, $manager);
 
         //Appelle de la fonction pour créé nos sous caté + définition de qui ils sont enfant et de leur nom
-        $this->createCategory('Nike', 'nike.png',$parent, 6, $manager);
-        $this->createCategory('Adidas', 'adidas.png',$parent, 7, $manager);
-        $this->createCategory('Puma','puma.png', $parent, 8, $manager);
+        $this->createCategory('Nike Femme', 'nike.png',$parent, 6, $manager);
+        $this->createCategory('Adidas Femme', 'adidas.png',$parent, 7, $manager);
+        $this->createCategory('Puma Femme','puma.png', $parent, 8, $manager);
 
         $manager->flush();
     }
