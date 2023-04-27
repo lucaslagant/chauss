@@ -19,10 +19,4 @@ class MarquesController extends AbstractController
             ['categoryOrder' => 'asc'])
         ]);
     }
-
-    #[Route('/{slug}', name: 'list')]
-    public function list(Categories $category): Response
-    {
-        return $this->render('marques/list.html.twig', compact('category'));
-    }
 }
