@@ -1,5 +1,12 @@
-<h1>Activez votre compte</h1>
-<p>Bonjour {{ user.firstname }},</p>
-<p>Votre compte Chauss est à valider en cliquant sur le liens ci-dessous :</p>
-<p><a href="#">Lien</a></p>
-<p>Ce lien expirera dans 3 heures</p>
+<section class="container">
+    <div class="bg-rouge h-25">
+        <h1 class="text-light fw-bold fs-3">Chauss</h1>
+    </div>
+    <div class="row">
+        <h2>Activez votre compte</h2>
+        <p>Bonjour {{ user.firstname }},</p>
+        <p>Votre compte Chauss est à valider en cliquant sur le lien ci-dessous :</p>
+        <p><a href="{{ absolute_url(path('verify_user', {token: token}))}}">J'active mon compte</a></p>
+        <p>Ce lien expirera dans 3 heures</p>
+    </div>
+</section>
