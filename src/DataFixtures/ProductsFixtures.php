@@ -21,7 +21,7 @@ class ProductsFixtures extends Fixture
         $this->manager = $manager;
 
         $this->createProduct('Air Force One', 'sneakers blanches en cuir véritable, coupe courte et une semmelle extérieure en caoutchouc pour plus de durabilité' , '135.00' , '3', '2');
-        $this->createProduct('React Vision', 'Avec leur douce languette, leur mousse Nike React et d\un renfort en caoutchouc sur la semelle . Leur empeigne s\'orne d\'un mesh transparent au design moderne' , '145.00' , '2', '2');
+        $this->createProduct('React Vision', 'Avec leur douce languette, leur mousse Nike React et d\'un renfort en caoutchouc sur la semelle . Leur empeigne s\'orne d\'un mesh transparent au design moderne' , '145.00' , '2', '2');
         $this->createProduct('Dunk Low', 'Sa conception en matières recyclées est un gage écoresponsable et de haute qualité. Cette paire déjà iconique vous accompagnera à chaque occasion.' , '130.00' , '5', '2');
 
 

@@ -8,14 +8,16 @@
         <div class="col-12">
             <h1>Liste des produits de {{ category.name }}</h1>
         </div>
+        <div class="col-12">
+            <a href="{{ path('marques')}}" class="btn btn-rouge">Retour</a>    
+        </div>
         {% for product in products %}
         <div class="col-4 my-5">
             <article class="card h-100">
-            <img src="#" class="card-img-top w-100 p-5" alt="images des produits">
                 <div class="card-body">
                     <h2 class="card-title my-3">{{ product.name }}</h2>
                     <p class="card-text my-5">{{ product.description }}</p>
-                    <a href="#" class="btn btn-rouge">Voir les détails</a>
+                    <a href="{{ path('products_details', {"slug": product.slug }) }}" class="btn btn-rouge">Voir les détails</a>
                 </div>
             </article>
         </div>
