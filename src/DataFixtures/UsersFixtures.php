@@ -32,6 +32,20 @@ class UsersFixtures extends Fixture
 
         $manager->persist($admin);
 
+        //Ici on créé notre product admin
+
+        $productAdmin = new Users();
+        $productAdmin->setEmail('productAdmin@chauss.fr');
+        $productAdmin->setLastname('Prod');
+        $productAdmin->setFirstname('Admin');
+        $productAdmin->setAddress('12 rue des test');
+        $productAdmin->setZipcode('80700');
+        $productAdmin->setCity('Amiens');
+        $productAdmin->setPassword($this->passwordEncoder->hashPassword($productAdmin, 'productAdmin'));
+        $productAdmin->setRoles(['ROLE_PRODUCT_ADMIN']);
+
+        $manager->persist($productAdmin);
+
         //On utilise Faker pour créé de faux users afin de remplir un peu la bdd
 
         //Ici fr_FR permet d'avoir des fausses donnés en Français
