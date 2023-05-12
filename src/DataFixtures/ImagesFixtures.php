@@ -15,7 +15,7 @@ class ImagesFixtures extends Fixture implements DependentFixtureInterface
     {
         $this->manager = $manager;
 
-        $this->createImage('airForce1Hommeprofil.avif', '1');
+        $this->createImage('airForce1Hommeprofil.webp', '1');
         $this->createImage('airForce1Hommederriere.webp', '1');
         $this->createImage('airForce1Hommedessous.webp', '1');
         $this->createImage('airForce1Hommedessus.webp', '1');
