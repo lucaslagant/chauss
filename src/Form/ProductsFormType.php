@@ -8,8 +8,10 @@ use App\Repository\CategoriesRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Positive;
 
 class ProductsFormType extends AbstractType
 {
@@ -17,14 +19,35 @@ class ProductsFormType extends AbstractType
     {
         $builder
             ->add('name', options:[
-                'label' => 'Nom'
+                'label' => 'Nom',
+                'constraints' => [
+                    new Positive(
+                        message: 'Le nom du produit ne peut être vide'
+                    )
+                ]
             ])
-            ->add('description')
-            ->add('price', options:[
-                'label' => 'Prix'
+            ->add('description', options:[
+                'constraints' => [
+                    new Positive(
+                        message: 'La description du produit ne peut être vide'
+                    )
+                ]
+            ])
+            ->add('price', MoneyType::class,options:[
+                'label' => 'Prix',
+                'constraints' => [
+                    new Positive(
+                        message: 'Le prix ne peut être négatif'
+                    )
+                ]
             ])
             ->add('stock', options:[
-                'label' => 'Unités en stock'
+                'label' => 'Unités en stock',
+                'constraints' => [
+                    new Positive(
+                        message: 'Ls stock ne peut être négatif'
+                    )
+                ]
             ])
             ->add('categories', EntityType::class, [
                 'class' => Categories::class,
