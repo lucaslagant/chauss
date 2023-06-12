@@ -42,6 +42,7 @@ class ProductsController extends AbstractController
         //On vérifie si le formulaire est soumis ET valide
         if ($productForm->isSubmitted() && $productForm->isValid()) {
             //On récupère les images
+            
             $images = $productForm->get('images')->getData();
 
             foreach ($images as $image) {

@@ -42,7 +42,7 @@
             <p class="fs-3"><span class="fw-bold">Prix :</span> {{ product.price}} €</p>
             <div class="col-12 my-5">
                 {% if product.stock > 0  %}
-                    <a href="#" class="btn btn-rouge btn-lg">Ajouter au panier</a>
+                    <a href="{{ path('cart_add', {id: product.id}) }}" class="btn btn-rouge btn-lg">Ajouter au panier</a>
                 {% else %}
                     <p class="text-danger">Temporairement indisponible</p>
                 {% endif %}
